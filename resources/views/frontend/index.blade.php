@@ -3,11 +3,18 @@
 
 @section('frontend__content')
 
+@section('title','| Home')
+
+
+
+
+@include('frontend.home.home_slider')
+<!--End category slider-->
+
 
 <!--End hero slider-->
 @include('frontend.home.featured')
 
-<!--End category slider-->
 
 
 @include('frontend.home.banner')

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Muzinge @yield('title')</title>
+    <title>Marketplace @yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -201,19 +201,10 @@
 
 
 
-
-    @include('frontend.home.home_slider')
-
-
-
-
     <main class="main">
         @yield('frontend__content')
 
     </main>
-
-
-
 
 
 

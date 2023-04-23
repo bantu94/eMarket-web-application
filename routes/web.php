@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\VendorProductController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\Vendor\VendorController;
@@ -213,6 +214,10 @@ Route::group(['middleware' => ['auth','role:admin']], function () {
 
 });  // ********END**********ADMIN**PROTECTED***********************************
 
+
+
+// ********FRONTEND************PRODUCT DETAILS***********************************
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 
 
 
