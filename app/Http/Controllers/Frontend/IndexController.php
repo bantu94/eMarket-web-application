@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+
+
+    public function Index() {
+
+        $skip_category0 = Category::skip(0)->first();
+        $skip_product0 = Product::where('status',1)->where('category_id',$skip_category0->id)->orderBy('id','DESC')->limit(5)->get();
+
+        return view('frontend.index', compact('skip_category0','skip_product0'));
+    }
+
+
+
     public function ProductDetails($id,$slug) {
 
         $product = Product::findOrFail($id);
@@ -28,4 +40,7 @@ class IndexController extends Controller
         return view('frontend.Product.product_details', compact('product','product_color','product_size','multiImages','relatedproduct'));
 
     }
+
+
+
 }

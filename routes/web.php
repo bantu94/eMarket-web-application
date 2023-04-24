@@ -26,9 +26,14 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', [IndexController::class, 'Index']);
+
+
+// ********FRONTEND************PRODUCT DETAILS***********************************
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+
+
+
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
@@ -214,10 +219,6 @@ Route::group(['middleware' => ['auth','role:admin']], function () {
 
 });  // ********END**********ADMIN**PROTECTED***********************************
 
-
-
-// ********FRONTEND************PRODUCT DETAILS***********************************
-Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 
 
 
