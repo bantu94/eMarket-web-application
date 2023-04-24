@@ -9,11 +9,11 @@
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
+                            <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
-                                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $item->product_name }}</a>
+                                <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                             </h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
@@ -49,11 +49,11 @@
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
+                            <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
-                                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $item->product_name }}</a>
+                                <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                             </h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
@@ -89,11 +89,11 @@
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
+                            <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
-                                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $item->product_name }}</a>
+                                <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                             </h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
@@ -130,11 +130,11 @@
 
                     <article class="row align-items-center hover-up">
                         <figure class="col-md-4 mb-0">
-                            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
+                            <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}"><img src="{{ asset($item->product_thumbnail) }}" alt="" /></a>
                         </figure>
                         <div class="col-md-8 mb-0">
                             <h6>
-                                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $item->product_name }}</a>
+                                <a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a>
                             </h6>
                             <div class="product-rate-cover">
                                 <div class="product-rate d-inline-block">
