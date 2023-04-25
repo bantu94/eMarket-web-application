@@ -33,6 +33,10 @@ Route::get('/', [IndexController::class, 'Index']);
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor_details');
 Route::get('/vendor/list', [IndexController::class, 'VendorList'])->name('vendor_list');
+Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatwiseProduct']);
+
+Route::get('/product/subcategory/{id}/{slug}', [IndexController::class, 'SubcatwiseProduct']);
+
 
 
 

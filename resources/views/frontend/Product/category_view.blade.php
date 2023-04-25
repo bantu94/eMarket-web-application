@@ -1,30 +1,32 @@
 @extends('frontend.frontend_master')
 
-
 @section('frontend__content')
 
-@section('title','| Vendor | Details')
+@section('title','| Category | details')
 
 
-
-<div class="page-header breadcrumb-wrap">
+<div class="page-header mt-30 mb-50">
     <div class="container">
-        <div class="breadcrumb">
-            <a href="{{ url('/') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-            <span></span> Store <span></span> {{ $vendor->name }}
+        <div class="archive-header">
+            <div class="row align-items-center">
+                <div class="col-xl-8">
+                    <h4 class="mb-15">{{ $breadcut->category_name }}</h4>
+                    <div class="breadcrumb">
+                        <a href="{{ url('/') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                        <span></span> Category <span></span> {{ $breadcut->category_name }}
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 <div class="container mb-30">
-    <div class="archive-header-2 text-center pt-80 pb-50">
-        <h1 class="display-2 mb-50">{{ $vendor->name }}</h1>
-
-    </div>
     <div class="row flex-row-reverse">
         <div class="col-lg-4-5">
             <div class="shop-product-fillter">
                 <div class="totall-product">
-                    <p>I have <strong class="text-brand">{{ count($vendorProducts) }}</strong> items.</p>
+                    <p>We found <strong class="text-brand">{{ count($products) }}</strong> items for you!</p>
                 </div>
                 <div class="sort-by-product-area">
                     <div class="sort-by-cover mr-10">
@@ -69,7 +71,7 @@
             </div>
             <div class="row product-grid">
 
-                @foreach ($vendorProducts as $product)
+                @foreach ($products as $product)
 
                 <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                     <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
@@ -126,6 +128,8 @@
                                 @endif
 
                             </div>
+
+
                             <div class="product-card-bottom">
 
                                 @if ($product->discount_price == NULL)
@@ -172,59 +176,68 @@
             </div>
 
             <!--End Deals-->
+
+
         </div>
         <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
-            <div class="sidebar-widget widget-store-info mb-30 bg-3 border-0">
-                <div class="vendor-logo mb-30">
-                    <img src="{{ (!empty($vendor->photo)) ? url('uploads/vendorImages/'.$vendor->photo) : url('uploads/default.webp') }}" alt="VendorImage" style="border-top-left-radius: 10%;border-top-right-radius: 10%;margin-top:.6rem;"/>
-                </div>
-                <div class="vendor-info">
-                    <div class="product-category">
-                        <span class="text-muted">Since {{ $vendor->vendor_join }}</span>
+            <div class="sidebar-widget widget-category-2 mb-30">
+                <h5 class="section-title style-1 mb-30">Categories</h5>
+                <ul>
+
+                    @foreach ($categories as $category)
+                    {{-- counting products in category  --}}
+                    @php
+                        $products = App\Models\Product::where('category_id',$category->id)->get();
+                    @endphp
+
+                    <li>
+                        <a href="shop-grid-right.html"> <img src="{{ asset($category->category_image) }}" alt="" />{{ $category->category_name }}</a><span class="count">{{ count($products) }}</span>
+                    </li>
+                    @endforeach
+
+                </ul>
+            </div>
+
+            <!-- Product sidebar Widget -->
+            <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
+                <h5 class="section-title style-1 mb-30">Latest</h5>
+
+                @foreach ($latest as $item)
+
+                <div class="single-post clearfix">
+                    <div class="image">
+                        <img src="{{ asset($item->product_thumbnail) }}" alt="productImage" />
                     </div>
-                    <h4 class="mb-5"><a href="" class="text-heading">{{ $vendor->name }}</a></h4>
-                    <div class="product-rate-cover mb-15">
-                        <div class="product-rate d-inline-block">
+                    <div class="content pt-10">
+                        <p><a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug) }}">{{ $item->product_name }}</a></p>
+
+                        @php
+                        $amount = $product->selling_price - $product->discount_price;
+                        $discount = ($amount/$product->selling_price) * 100;
+                        @endphp
+
+                        <div class="product-badges product-badges-position product-badges-mrg">
+
+                            @if ($product->discount_price == NULL)
+                            <p class="price mb-0 mt-5">${{ $product->selling_price }}</p>
+                            @else
+                            <p class="price mb-0 mt-5">${{ $product->discount_price }}</p>
+                            @endif
+
+                        </div>
+
+
+
+
+
+                        <div class="product-rate">
                             <div class="product-rating" style="width: 90%"></div>
                         </div>
-                        <span class="font-small ml-5 text-muted"> (4.0)</span>
-                    </div>
-                    <div class="vendor-des mb-30">
-                        <p class="font-sm text-heading">{{ $vendor->vendor_short_info }}</p>
-                    </div>
-                    <div class="follow-social mb-20">
-                        <h6 class="mb-15">Follow Us</h6>
-                        <ul class="social-network">
-                            <li class="hover-up">
-                                <a href="#">
-                                    <img src="{{ asset('frontend/assets/imgs/theme/icons/social-tw.svg') }}" alt="" />
-                                </a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="#">
-                                    <img src="{{ asset('frontend/assets/imgs/theme/icons/social-fb.svg') }}" alt="" />
-                                </a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="#">
-                                    <img src="{{ asset('frontend/assets/imgs/theme/icons/social-insta.svg') }}" alt="" />
-                                </a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="#">
-                                    <img src="{{ asset('frontend/assets/imgs/theme/icons/social-pin.svg') }}" alt="" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="vendor-info">
-                        <ul class="font-sm mb-20">
-                            <li><img class="mr-5" src="{{ asset('frontend/assets/imgs/theme/icons/icon-location.svg') }}" alt="" /><strong>Address: </strong> <span>{{ $vendor->address }}</span></li>
-                            <li><img class="mr-5" src="{{ asset('frontend/assets/imgs/theme/icons/icon-contact.svg') }}" alt="" /><strong>Call Us:</strong><span>{{ $vendor->phone }}</span></li>
-                        </ul>
-                        <a href="mailto:email@example.com" class="btn btn-xs">Email Seller </a>
                     </div>
                 </div>
+                @endforeach
+
+
             </div>
 
         </div>

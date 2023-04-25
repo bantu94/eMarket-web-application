@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Product;
+use App\Models\Subcategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -71,6 +72,33 @@ class IndexController extends Controller
         $vendors = User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->get();
 
         return view('frontend.vendor.vendor_list',compact('vendors'));
+
+    }
+
+    public function CatwiseProduct(Request $request,$id,$slug) {
+
+        $products = Product::where('status',1)->where('category_id',$id)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+
+        $breadcut = Category::where('id',$id)->first();
+
+        $latest = Product::orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.Product.category_view',compact('products','categories','breadcut','latest'));
+
+    }
+
+
+    public function SubcatwiseProduct(Request $request,$id,$slug) {
+
+        $products = Product::where('status',1)->where('subcategory_id',$id)->orderBy('id','DESC')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+
+        $subcat_breadcut = Subcategory::where('id',$id)->first();
+
+        $latest = Product::orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.Product.subcategory_view',compact('products','categories','subcat_breadcut','latest'));
 
     }
 

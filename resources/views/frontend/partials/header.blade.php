@@ -221,18 +221,18 @@
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
-                                    @foreach ($categories as $value)
+                                    @foreach ($categories as $category)
                                         <li>
-                                            <a href="#"> <img src="{{ asset($value->category_image) }}" alt="" />{{ $value->category_name }}</a>
+                                            <a href="#"> <img src="{{ asset($category->category_image) }}" alt="" />{{ $category->category_name }}</a>
                                         </li>
                                     @endforeach
 
 
                                 </ul>
                                 <ul class="end">
-                                    @foreach ($categories as $value)
+                                    @foreach ($categories as $category)
                                         <li>
-                                            <a href="#"> <img src="{{ asset($value->category_image) }}" alt="" />{{ $value->category_name }}</a>
+                                            <a href="#"> <img src="{{ asset($category->category_image) }}" alt="" />{{ $category->category_name }}</a>
                                         </li>
                                     @endforeach
 
@@ -277,7 +277,7 @@
                                 @endphp
                                 @foreach ($categories as $category)
                                     <li>
-                                        <a href="#">{{ $category->category_name }} <i class="fi-rs-angle-down"></i></a>
+                                        <a href="{{ url('product/category/'.$category->id.'/'.$category->category_slug) }}">{{ $category->category_name }} <i class="fi-rs-angle-down"></i></a>
 
                                         @php
                                         // fetch data from subcategories table
@@ -285,7 +285,7 @@
                                         @endphp
                                         <ul class="sub-menu">
                                             @foreach ($subcategories as $subcategory)
-                                                <li><a href="#">{{ $subcategory->subcategory_name }}</a></li>
+                                                <li><a href="{{ url('product/subcategory/'.$subcategory->id.'/'.$subcategory->subcategory_slug) }}">{{ $subcategory->subcategory_name }}</a></li>
                                             @endforeach
 
                                         </ul>
