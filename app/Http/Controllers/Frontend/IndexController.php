@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\MultiImage;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -53,6 +54,23 @@ class IndexController extends Controller
         $relatedproduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->limit(4)->get();
 
         return view('frontend.Product.product_details', compact('product','product_color','product_size','multiImages','relatedproduct'));
+
+    }
+
+    public function VendorDetails($id) {
+
+        $vendor = User::findOrFail($id);
+        $vendorProducts = Product::where('vendor_id',$id)->get();
+
+        return view('frontend.vendor.vendor_details', compact('vendor','vendorProducts'));
+
+    }
+
+    public function VendorList() {
+
+        $vendors = User::where('status','active')->where('role','vendor')->orderBy('id','DESC')->get();
+
+        return view('frontend.vendor.vendor_list',compact('vendors'));
 
     }
 

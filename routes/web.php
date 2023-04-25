@@ -31,6 +31,8 @@ Route::get('/', [IndexController::class, 'Index']);
 
 // ********FRONTEND************PRODUCT DETAILS***********************************
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor_details');
+Route::get('/vendor/list', [IndexController::class, 'VendorList'])->name('vendor_list');
 
 
 

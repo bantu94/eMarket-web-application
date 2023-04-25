@@ -37,7 +37,7 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3>{{ $skip_category0->category_name }} Category </h3>
+            <h3>{{ $skip_category0->category_name }}</h3>
 
         </div>
         <!--End nav-tabs-->
@@ -97,7 +97,7 @@
                                         </span>
                                     @else
                                         <span class="font-small text-muted">By
-                                            <a href="#">{{ $product['vendor_relation']['name'] }}
+                                            <a style="color: rgba(39, 158, 69, 0.798);">{{ $product['vendor_relation']['name'] }}
                                             </a>
                                         </span>
                                     @endif
@@ -151,7 +151,7 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3>{{ $skip_category2->category_name }} Category </h3>
+            <h3>{{ $skip_category2->category_name }}</h3>
 
         </div>
         <!--End nav-tabs-->
@@ -211,7 +211,7 @@
                                         </span>
                                     @else
                                         <span class="font-small text-muted">By
-                                            <a href="#">{{ $product['vendor_relation']['name'] }}
+                                            <a style="color: rgba(39, 158, 69, 0.798);">{{ $product['vendor_relation']['name'] }}
                                             </a>
                                         </span>
                                     @endif
@@ -263,7 +263,7 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3>{{ $skip_category3->category_name }} Category </h3>
+            <h3>{{ $skip_category3->category_name }}</h3>
 
         </div>
         <!--End nav-tabs-->
@@ -323,7 +323,7 @@
                                         </span>
                                     @else
                                         <span class="font-small text-muted">By
-                                            <a href="#">{{ $product['vendor_relation']['name'] }}
+                                            <a style="color: rgba(39, 158, 69, 0.798);">{{ $product['vendor_relation']['name'] }}
                                             </a>
                                         </span>
                                     @endif
@@ -372,7 +372,7 @@
 <section class="product-tabs section-padding position-relative">
     <div class="container">
         <div class="section-title style-2 wow animate__animated animate__fadeIn">
-            <h3>{{ $skip_category2->category_name }} Category </h3>
+            <h3>{{ $skip_category2->category_name }}</h3>
 
         </div>
         <!--End nav-tabs-->
@@ -432,7 +432,7 @@
                                         </span>
                                     @else
                                         <span class="font-small text-muted">By
-                                            <a href="#">{{ $product['vendor_relation']['name'] }}
+                                            <a style="color: rgba(39, 158, 69, 0.798);" >{{ $product['vendor_relation']['name'] }}
                                             </a>
                                         </span>
                                     @endif
